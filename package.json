@@ -1,0 +1,15 @@
+{
+  "name": "horoscopefrontend",
+  "version": "1.0.0",
+  "description": "this application will be a front-end component for a horoscope application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Justin Truong",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^2.6.9"
+  }
+}

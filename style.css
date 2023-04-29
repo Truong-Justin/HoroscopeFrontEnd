@@ -1,0 +1,53 @@
+#profile_pic {
+    border-radius: 50%;
+}
+
+#section_title {
+    text-decoration: underline;
+    margin-top: 100px;
+}
+
+#section_keywords {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+#project_titles {
+    text-decoration: underline;
+    text-decoration-color: slategray;
+}
+
+#project_descriptions {
+    margin-top: 100px;
+    text-decoration-line: underline;
+    text-decoration-color: slategray;
+}
+
+#paragraph_spacing {
+    margin-top: 25px;
+}
+
+#center_image {
+    display: flex;
+    justify-content: center;
+}
+
+
+.card {
+    height: 100%;
+}
+
+#imageRight {
+    float: right;
+}
+
+#border {
+    border-width: 4px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: black;
+}
+
+#round_div {
+    border-radius: 4px;
+}
