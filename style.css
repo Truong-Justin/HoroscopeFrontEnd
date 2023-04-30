@@ -32,6 +32,9 @@
     justify-content: center;
 }
 
+#ddlSignsMobile {
+    max-width: 52%;
+}
 
 .card {
     height: 100%;

@@ -8,8 +8,6 @@ async function getData() {
     console.log(data['data']);
 }
 
-function changeParagraph(message) {
-    document.getElementById('paragraph').innerText = "Message changed";
+function changeParagraph() {
+    document.getElementById('paragraph').innerText = 'Message changed';
 }
-
-getData();
