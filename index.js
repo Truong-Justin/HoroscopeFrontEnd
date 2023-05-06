@@ -1,4 +1,4 @@
-import fetch from 'node-fetch'
+import fetch from 'node-fetch';
 
 
 function returnEndpoint() {
@@ -78,13 +78,13 @@ function returnEndpoint() {
 //creates and returns a response object using fetch
 //and prints the JSON data within the response object
 async function getData() {
-    const url = "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=aries&day=yesterday";
+    const url = returnEndpoint();
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data['data'])
+            changeParagraph(data['data'])
         })
-        .catch(error => console.log(error));
+        .catch(error => changeParagraph(error));
 }
 
 function getDdlSignDesktop() {
@@ -110,7 +110,5 @@ function makeKey() {
 }
 
 function changeParagraph() {
-    document.getElementById('paragraph').innerText = 'helloWorld';
+    document.getElementById('paragraph').innerText = 'helloworld';
 }
-
-getData();
