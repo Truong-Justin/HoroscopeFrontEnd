@@ -1,7 +1,5 @@
-import fetch from 'node-fetch';
 
-
-function returnEndpoint() {
+function getEndpoint() {
     const key = makeKey();
     const endpoint = {
         "AriesYesterday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=aries&day=yesterday",
@@ -52,6 +50,12 @@ function returnEndpoint() {
         "ScorpioWeekly" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/weekly?sign=scorpio",
         "ScorpioMonthly" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/monthly?sign=scorpio",
 
+        "SagittariusYesterday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=sagittarius&day=yesterday",
+        "SaggittariusToday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=sagittarius&day=today",
+        "SaggitariusTomorrow" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=sagittarius&day=tomorrow",
+        "SaggitariusWeekly" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/weekly?sign=scorpio",
+        "SaggitariusMonthly" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/monthly?sign=scorpio",
+
         "CapricornYesterday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=capricorn&day=yesterday",
         "CapricornToday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=capricorn&day=today",
         "CapricornTomorrow" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=capricorn&day=tomorrow",
@@ -72,19 +76,18 @@ function returnEndpoint() {
     }
 
     return endpoint[key];
-    
 }
 
 //creates and returns a response object using fetch
 //and prints the JSON data within the response object
 async function getData() {
-    const url = returnEndpoint();
+    const url = getEndpoint();
     fetch(url)
         .then(response => response.json())
         .then(data => {
             changeParagraph(data['data'])
         })
-        .catch(error => changeParagraph(error));
+        .catch(error => changeParagraph(data['data']));
 }
 
 function getDdlSignDesktop() {
@@ -109,6 +112,7 @@ function makeKey() {
     return key;
 }
 
-function changeParagraph() {
-    document.getElementById('paragraph').innerText = 'helloworld';
+function changeParagraph(horoscopeText) {
+    document.getElementById('paragraph').innerText = horoscopeText;
 }
+
