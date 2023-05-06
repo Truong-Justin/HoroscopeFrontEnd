@@ -34,7 +34,7 @@
             </div>
         </nav>
         <!--Showcase-->
-        <section class="bg-dark text-light p-4 text-center text-sm-start">
+        <section class="bg-dark text-light p-4 text-center text-sm-start shadow-lg">
         <div class="container">
             <div class="d-sm-flex align-items-center justify-content-between">
                 <img class="img-fluid d-sm-none" 
@@ -89,10 +89,9 @@
                             <img class="w-75 mx-auto d-sm-none  my-2" src="images/moon.png"/>
                             <div id="round_div" class="bg-dark mb-3">
                             <h1 class="text-center text-light mt-5"><span class="text-warning">Horoscope</span> Application</h1>
-                            <!--Desktop UI-->
-                            <div class="d-sm-block d-none" id="desktopUI">
-                                <div class="mx-auto mt-5 w-25">
-                                    <select class="form-select" id="ddlSignsDesktop">
+                            <div id="desktopUI">
+                                <div class="mx-auto mt-5">
+                                    <select class="form-select mx-auto w-50" id="ddlSignsDesktop">
                                         <option value="Aries">Aries</option>
                                         <option value="Taurus">Taurus</option>
                                         <option value="Gemini">Gemini</option>
@@ -107,36 +106,8 @@
                                         <option value="Pisces">Pisces</option>
                                     </select>
                                 </div>
-                                <div class="mx-auto mt-3 w-25">
-                                    <select class="form-select" id="ddlTimeframeDesktop">
-                                        <option value="Yesterday">Yesterday</option>
-                                        <option value="Today">Today</option>
-                                        <option value="Tomorrow">Tomorrow</option>
-                                        <option value="Weekly">Weekly</option>
-                                        <option value="Monthly">Monthly</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <!--Mobile UI-->
-                            <div class="d-sm-none mx-auto" id="mobileUI">
-                                <div class="mx-auto mt-5" id="ddlSignsMobile">
-                                    <select class="form-select">
-                                        <option value="Aries">Aries</option>
-                                        <option value="Taurus">Taurus</option>
-                                        <option value="Gemini">Gemini</option>
-                                        <option value="Cancer">Cancer</option>
-                                        <option value="Leo">Leo</option>
-                                        <option value="Virgo">Virgo</option>
-                                        <option value="Libra">Libra</option>
-                                        <option value="Scorpio">Scorpio</option>
-                                        <option value="Sagittarius">Sagittarius</option>
-                                        <option value="Capricorn">Capricorn</option>
-                                        <option value="Aquarius">Aquarius</option>
-                                        <option value="Pisces">Pisces</option>
-                                    </select>
-                                </div>
-                                <div class="mx-auto mt-3 w-50">
-                                    <select class="form-select" id="ddlTimeframeMobile">
+                                <div class="mx-auto mt-3">
+                                    <select class="form-select mx-auto w-50" id="ddlTimeframeDesktop">
                                         <option value="Yesterday">Yesterday</option>
                                         <option value="Today">Today</option>
                                         <option value="Tomorrow">Tomorrow</option>

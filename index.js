@@ -1,4 +1,40 @@
 
+async function getData() {
+    const url = getEndpoint();
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            changeParagraph(data['data'])
+        })
+        .catch(error => changeParagraph(data['data']));
+}
+
+function getDdlSignDesktop() {
+    const element = document.getElementById('ddlSignsDesktop');
+    const sign = element.value;
+
+    return sign;
+}
+
+function getDdlTimeframeDesktop() {
+    const element = document.getElementById('ddlTimeframeDesktop');
+    const timeFrame = element.value;
+
+    return timeFrame;
+}
+
+function makeKey() {
+    const sign = getDdlSignDesktop();
+    const timeFrame = getDdlTimeframeDesktop();
+    const key = sign + timeFrame;
+
+    return key;
+}
+
+function changeParagraph(horoscopeText) {
+    document.getElementById('paragraph').innerText = horoscopeText;
+}
+
 function getEndpoint() {
     const key = makeKey();
     const endpoint = {
@@ -77,42 +113,3 @@ function getEndpoint() {
 
     return endpoint[key];
 }
-
-//creates and returns a response object using fetch
-//and prints the JSON data within the response object
-async function getData() {
-    const url = getEndpoint();
-    fetch(url)
-        .then(response => response.json())
-        .then(data => {
-            changeParagraph(data['data'])
-        })
-        .catch(error => changeParagraph(data['data']));
-}
-
-function getDdlSignDesktop() {
-    const element = document.getElementById('ddlSignsDesktop');
-    const sign = element.value;
-
-    return sign;
-}
-
-function getDdlTimeframeDesktop() {
-    const element = document.getElementById('ddlTimeframeDesktop');
-    const timeFrame = element.value;
-
-    return timeFrame;
-}
-
-function makeKey() {
-    const sign = getDdlSignDesktop();
-    const timeFrame = getDdlTimeframeDesktop();
-    const key = sign + timeFrame;
-
-    return key;
-}
-
-function changeParagraph(horoscopeText) {
-    document.getElementById('paragraph').innerText = horoscopeText;
-}
-
