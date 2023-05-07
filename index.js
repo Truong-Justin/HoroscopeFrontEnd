@@ -1,4 +1,10 @@
 
+$(document).ready(function (){
+    $('#btnShowHoroscope').click(function(){
+        getData();
+    })
+})
+
 async function getData() {
     const url = getEndpoint();
     fetch(url)
