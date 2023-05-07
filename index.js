@@ -10,35 +10,17 @@ async function getData() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            changeParagraph(data['data'])
+            $('#paragraph').text(data['data'])
         })
-        .catch(error => changeParagraph(data['data']));
-}
-
-function getDdlSignDesktop() {
-    const element = document.getElementById('ddlSignsDesktop');
-    const sign = element.value;
-
-    return sign;
-}
-
-function getDdlTimeframeDesktop() {
-    const element = document.getElementById('ddlTimeframeDesktop');
-    const timeFrame = element.value;
-
-    return timeFrame;
+        .catch($('#paragraph').text(data['data']));
 }
 
 function makeKey() {
-    const sign = getDdlSignDesktop();
-    const timeFrame = getDdlTimeframeDesktop();
-    const key = sign + timeFrame;
+    const sign = $('#ddlSignsDesktop').val();
+    const timeframe = $('#ddlTimeframesDesktop').val();
+    const key = sign + timeframe;
 
     return key;
-}
-
-function changeParagraph(horoscopeText) {
-    document.getElementById('paragraph').innerText = horoscopeText;
 }
 
 function getEndpoint() {
