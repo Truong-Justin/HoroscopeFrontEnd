@@ -76,9 +76,9 @@ function getEndpoint() {
 
         "SagittariusYesterday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=sagittarius&day=yesterday",
         "SagittariusToday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=sagittarius&day=today",
-        "SaggittariusTomorrow" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=sagittarius&day=tomorrow",
-        "SaggittariusWeekly" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/weekly?sign=sagittarius",
-        "SaggittariusMonthly" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/monthly?sign=sagittarius",
+        "SagittariusTomorrow" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=sagittarius&day=tomorrow",
+        "SagittariusWeekly" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/weekly?sign=sagittarius",
+        "SagittariusMonthly" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/monthly?sign=sagittarius",
 
         "CapricornYesterday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=capricorn&day=yesterday",
         "CapricornToday" : "https://horoscopeapi-v6vga.ondigitalocean.app/api/get-horoscope/daily?sign=capricorn&day=today",
