@@ -1,44 +1,59 @@
 import React from 'react';
 import { useState } from 'react';
-import Select from 'react-select';
+import Moon from './images/moon.png';
 
 export function Horoscope() {
-    const [data, setData] = useState('')
+    const [data, setData] = useState('Select your zodiac sign from the dropdown menu, and select a timeframe to view your horoscope');
+    const [selectedSign, setSelectedSign] = useState('Aries');
+    const [selectedTimeframe, setSelectedTimeframe] = useState('Yesterday');
+    
     const sign = [
-        { value: 'Aries', label: 'Aries'},
-        { value: 'Taurus', label: 'Taurus'},
-        { value: 'Gemini', label: 'Gemini'},
-        { value: 'Cancer', label: 'Cancer'},
-        { value: 'Leo', label: 'Leo'},
-        { value: 'Virgo', label: 'Virgo'},
-        { value: 'Libra', label: 'Libra'},
-        { value: 'Scorpio', label: 'Scorpio'},
-        { value: 'Sagittarius', label: 'Sagittarius'},
-        { value: 'Capricorn', label: 'Capricorn'},
-        { value: 'Aquarius', label: 'Aquarius'},
-        { value: 'Pisces', label: 'Pisces'}
+        { key: 1, value: 'Aries', label: 'Aries'},
+        { key: 2, value: 'Taurus', label: 'Taurus'},
+        { key: 3, value: 'Gemini', label: 'Gemini'},
+        { key: 4, value: 'Cancer', label: 'Cancer'},
+        { key: 5, value: 'Leo', label: 'Leo'},
+        { key: 6, value: 'Virgo', label: 'Virgo'},
+        { key: 7, value: 'Libra', label: 'Libra'},
+        { key: 8, value: 'Scorpio', label: 'Scorpio'},
+        { key: 9, value: 'Sagittarius', label: 'Sagittarius'},
+        { key: 10, value: 'Capricorn', label: 'Capricorn'},
+        { key: 11, value: 'Aquarius', label: 'Aquarius'},
+        { key: 12, value: 'Pisces', label: 'Pisces'}
     ]
 
     const timeframe = [
-        { value: 'Yesterday', label: 'Yesterday'},
-        { value: 'Today', label: 'Today'},
-        { value: 'Tomorrow', label: 'Tomorrow'},
-        { value: 'Weekly', label: 'Weekly'},
-        { value: 'Monthly', label: 'Monthly'}
+        { key: 1, value: 'Yesterday', label: 'Yesterday'},
+        { key: 2, value: 'Today', label: 'Today'},
+        { key: 3, value: 'Tomorrow', label: 'Tomorrow'},
+        { key: 4, value: 'Weekly', label: 'Weekly'},
+        { key: 5, value: 'Monthly', label: 'Monthly'}
     ]
 
-    const handleClick = async () => {
-        try {
-                const data = getEndpoint();
-                setData(data)
-            } catch (err) {
-                console.log(err.message)
-            }
+    const handleSelectedSign = (event) => {
+        setSelectedSign(event.target.value);
+    }
+
+    const handleSelectedTimeframe = (event) => {
+        setSelectedTimeframe(event.target.value);
+    }
+
+    const handleClick = () => {
+        
+            const endpoint = getEndpoint()
+            fetch(endpoint)
+                .then(response => response.json())
+                .then(data => {
+                      setData(data.data)
+                 })
+                 .catch(() => {
+                    setData('Oh no, something went wrong!')
+                 })
     }
 
     const makeKey = () => {
-        const sign = 'Aries';
-        const timeframe = 'Today';
+        const sign = selectedSign;
+        const timeframe = selectedTimeframe;
         const key = sign + timeframe;
     
         return key;
@@ -124,11 +139,38 @@ export function Horoscope() {
     }
 
     return (
-        <div>
-            <button onClick={handleClick}>Load</button>
-            <Select options={sign} className="w-25"/>
-            <Select options={timeframe} className="w-25"/>
-            {data}
-        </div>
+        <section className="p-5">
+            <div className="container">
+                <div className="d-sm-flex row align-items-center justify-content-between">
+                        <div className="row" id="border">
+                            <img className="w-25 mx-auto d-none d-sm-block my-2" src={Moon} alt="Moon"/>
+                            <img className="w-75 mx-auto d-sm-none  my-2" src={Moon} alt="Moon"/>
+                            <div id="round-div" className="bg-dark mb-3">
+                            <h1 className="text-center text-light mt-5"><span className="text-warning">Horoscope</span> Application</h1>
+                            <div id="desktopUI">
+                                <div className="mx-auto mt-5">
+                                    <select value={selectedSign} onChange={handleSelectedSign} className="btn-lg btn-warning">
+                                        {sign.map(sign => {
+                                            return <option key={sign.key} value={sign.value}>{sign.label}</option>
+                                        })}
+                                    </select>
+                                </div>
+                                <div className="mx-auto mt-3">
+                                    <select value={selectedTimeframe} onChange={handleSelectedTimeframe} className="btn-lg btn-secondary">
+                                    {timeframe.map(timeframe => {
+                                        return <option key={timeframe.key} value={timeframe.value}>{timeframe.label}</option>
+                                    })}
+                                    </select>
+                                </div>
+                            </div>
+                            <div className="text-center">
+                                <button className="btn btn-secondary mt-5" onClick={handleClick}>Show Horoscope</button>
+                            </div>
+                                <p id="paragraph" className="mt-5 horoscope-text">({data})</p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
     )
 }

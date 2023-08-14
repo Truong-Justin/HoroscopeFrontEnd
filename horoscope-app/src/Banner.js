@@ -19,10 +19,10 @@ export function Banner() {
                         <a href="https://www.justintruong.studio" className="nav-link fw-bold text-light">Back To Portfolio</a>
                     </li>
                     <li className="nav-item">
-                        <a href="https://github.com/Truong-Justin/HoroscopeFrontEnd" class="nav-link fw-bold text-light">Github Page</a>
+                        <a href="https://github.com/Truong-Justin/HoroscopeFrontEnd" className="nav-link fw-bold text-light">Github Page</a>
                     </li>
                     <li className="nav-item">
-                        <a href="https://horoscopeapi-v6vga.ondigitalocean.app" class="nav-link fw-bold text-light">View The Api</a>
+                        <a href="https://horoscopeapi-v6vga.ondigitalocean.app" className="nav-link fw-bold text-light">View The Api</a>
                     </li>
                 </ul>
             </div>
@@ -66,7 +66,7 @@ export function Banner() {
                         </a>
                     </div>
                 </div>
-                <img className="img-fluid w-25 d-none d-sm-block ms-2 App-logo" 
+                <img className="img-fluid w-25 d-none d-sm-block ms-2" 
                 src={BannerPicture}
                 alt="BannerPicture" 
                 />
