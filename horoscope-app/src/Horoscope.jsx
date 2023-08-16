@@ -1,8 +1,12 @@
 import React from 'react';
 import { useState } from 'react';
+import Moon from './assets/images/moon.png'
 
-
+// This component handles the UI logic that 
+// outputs to the user their horoscope.
 export function Horoscope() {
+    // State objects that are set when a user clicks the 
+    // {Show Horoscope} button, or selects a sign/timeframe.
     const [horoscope, setHoroscope] = useState('Select your zodiac sign from the dropdown menu, and select a timeframe to view your horoscope');
     const [selectedSign, setSelectedSign] = useState('Aries');
     const [selectedTimeframe, setSelectedTimeframe] = useState('Yesterday');
@@ -30,27 +34,37 @@ export function Horoscope() {
         { key: 5, value: 'Monthly', label: 'Monthly'}
     ]
 
+    // Sets the selectedSign state object 
+    // when the user selects a sign.
     const handleSelectedSign = (event) => {
         setSelectedSign(event.target.value);
     }
 
+    // Sets the selectedTimeframe state object
+    // when the selects a timeframe.
     const handleSelectedTimeframe = (event) => {
         setSelectedTimeframe(event.target.value);
     }
 
+    // Sets the horoscope state object when 
+    // the user presses the {Show Horoscope} button.
+    // The function getEndpoint is used to get the correct
+    // API endpoint depending on the selections made by the user.
     const handleClick = async () => {
             const endpoint = getEndpoint()
 
             try {
-                const data = await fetch(endpoint)
-                const userHoroscope = await data.json();
+                const response = await fetch(endpoint)
+                const userHoroscope = await response.json();
                 setHoroscope(userHoroscope["data"]);
             } catch (error) {
-                setHoroscope('Oh no, something went wrong!');
+                console.log('error my dude', error);
             }
                 
     }
 
+    // Creates a key by concatenating the 
+    // selectedSign and selectedTimeframe together.
     const makeKey = () => {
         const sign = selectedSign;
         const timeframe = selectedTimeframe;
@@ -59,6 +73,8 @@ export function Horoscope() {
         return key;
     }
 
+    // Returns the correct API endpoint using the key returned 
+    // from the makeKey() function 
     const getEndpoint = () => {
         const key = makeKey();
         const endpoint = {
@@ -143,8 +159,8 @@ export function Horoscope() {
             <div className="container" id="parent">
                 <div className="d-sm-flex row align-items-center justify-content-between">
                         <div className="row" id="border">
-                            <img className="w-25 mx-auto d-none d-sm-block my-2" src="/src/assets/moon.png" alt="Moon"/>
-                            <img className="mx-auto d-sm-none my-2" src="/src/assets/moon.png" alt="Moon"/>
+                            <img className="w-25 mx-auto d-none d-sm-block my-2" src={Moon} alt="Moon"/>
+                            <img className="mx-auto d-sm-none my-2" src={Moon} alt="Moon"/>
                             <div id="round-div" className="mb-3 mx-auto">
                             <h1 className="text-center text-light mt-5"><span className="text-warning">Horoscope</span> Application</h1>
                             <div id="desktopUI">
