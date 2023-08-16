@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import Moon from './assets/images/moon.png'
+import Moon from '/images/moon.png';
+import './App.css';
 
 // This component handles the UI logic that 
 // outputs to the user their horoscope.
