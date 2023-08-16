@@ -1,6 +1,3 @@
-import BannerPicture from './assets/horoscopeImg.svg';
-
-
 export function Banner() {
     return (
       <>
@@ -28,10 +25,10 @@ export function Banner() {
             </div>
         </div>
     </nav>
-      <section className="bg-dark text-light p-4 text-center text-sm-start shadow-lg">
+      <section className="bg-dark text-light p-4 text-center text-sm-start shadow-lg" id="parent">
         <div className="container">
             <div className="d-sm-flex align-items-center justify-content-between">
-                <img className="img-fluid d-sm-none" id="horoscope-picture" src={BannerPicture} alt="BannerPicture" />
+                <img className="img-fluid d-sm-none" id="horoscope-picture" src="src/assets/horoscopeImg.svg" alt="BannerPicture" />
                 <div className="py-5">
                     <h1>View Your <span className="text-warning">Horoscope </span>Here!</h1>
                     <p className="lead my-4" >
@@ -65,7 +62,7 @@ export function Banner() {
                     </div>
                 </div>
                 <img className="img-fluid w-25 d-none d-sm-block ms-2" 
-                src={BannerPicture}
+                src="/src/assets/horoscopeImg.svg"
                 alt="BannerPicture" 
                 />
             </div>

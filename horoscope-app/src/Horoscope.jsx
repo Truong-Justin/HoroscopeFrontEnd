@@ -1,6 +1,5 @@
 import React from 'react';
 import { useState } from 'react';
-import Moon from './assets/moon.png';
 
 
 export function Horoscope() {
@@ -44,7 +43,7 @@ export function Horoscope() {
 
             try {
                 const data = await fetch(endpoint)
-                const userHoroscope = data.json();
+                const userHoroscope = await data.json();
                 setHoroscope(userHoroscope["data"]);
             } catch (error) {
                 setHoroscope('Oh no, something went wrong!');
@@ -144,8 +143,8 @@ export function Horoscope() {
             <div className="container" id="parent">
                 <div className="d-sm-flex row align-items-center justify-content-between">
                         <div className="row" id="border">
-                            <img className="w-25 mx-auto d-none d-sm-block my-2" src={Moon} alt="Moon"/>
-                            <img className="mx-auto d-sm-none my-2" src={Moon} alt="Moon"/>
+                            <img className="w-25 mx-auto d-none d-sm-block my-2" src="/src/assets/moon.png" alt="Moon"/>
+                            <img className="mx-auto d-sm-none my-2" src="/src/assets/moon.png" alt="Moon"/>
                             <div id="round-div" className="mb-3 mx-auto">
                             <h1 className="text-center text-light mt-5"><span className="text-warning">Horoscope</span> Application</h1>
                             <div id="desktopUI">
