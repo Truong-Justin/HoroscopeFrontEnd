@@ -45,7 +45,7 @@ export function Horoscope() {
             try {
                 const data = await fetch(endpoint)
                 const userHoroscope = data.json();
-                setHoroscope(userHoroscope.data);
+                setHoroscope(userHoroscope["data"]);
             } catch (error) {
                 setHoroscope('Oh no, something went wrong!');
             }
