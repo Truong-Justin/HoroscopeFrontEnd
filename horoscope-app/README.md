@@ -1,70 +1,26 @@
-# Getting Started with Create React App
+# Horoscope Front-End Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Project Description
+This application uses JavaScript, jQuery and HTML/CSS and gets a user's horoscope information from the Horoscope API using the JavaScript fetch API. It than displays to the user their horoscopes for the day, week, or month depending on the user's selection asynchronously. The sign and timeframe that is selected by the user is concatenated together to create a key that is mapped to it's corresponding API endpoint. From there, a GET request is sent to the endpoint and the user's horoscope is sent back as a response in JSON format. From here, the JSON object is parsed and displayed to the user so they can view their horoscope. This front-end application is also responsive and works on mobile devices. 
 
-In the project directory, you can run:
 
-### `npm start`
+## How to run the application
+The application is hosted on my web portfolio and can be accessed by visiting [https://horoscopeapp.justintruong.studio](https://horoscopeapp.justintruong.studio).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How to use the application
+1. Visit the website on any browser or device.
+2. Select your zodiac sign from the drop-down menu.
+3. Choose the time-interval from the second drop-down menu.
+4. Click the "Show Horoscope" button to display your horoscope.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technology used
+1. Microsoft Azure Static Web Apps to host the application
+2. JavaScript & jQuery, HTML/CSS & Bootstrap 5
+3. Horoscope REST API that is also found on my GitHub [https://github.com/Truong-Justin/horoscopeApi](https://github.com/Truong-Justin/horoscopeApi).
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Planned additions
+1. This project was used to learn how to use JavaScript, the fetch API, and jQuery to interface with the Horoscope REST API and display the information asynchronously on the client-side. As I learn more about JavaScript, I plan to use the React library to make a better user interface. 

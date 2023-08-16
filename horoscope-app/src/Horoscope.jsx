@@ -1,9 +1,10 @@
 import React from 'react';
 import { useState } from 'react';
-import Moon from './images/moon.png';
+import Moon from './assets/moon.png';
+
 
 export function Horoscope() {
-    const [data, setData] = useState('Select your zodiac sign from the dropdown menu, and select a timeframe to view your horoscope');
+    const [horoscope, setHoroscope] = useState('Select your zodiac sign from the dropdown menu, and select a timeframe to view your horoscope');
     const [selectedSign, setSelectedSign] = useState('Aries');
     const [selectedTimeframe, setSelectedTimeframe] = useState('Yesterday');
     
@@ -38,17 +39,17 @@ export function Horoscope() {
         setSelectedTimeframe(event.target.value);
     }
 
-    const handleClick = () => {
-        
+    const handleClick = async () => {
             const endpoint = getEndpoint()
-            fetch(endpoint)
-                .then(response => response.json())
-                .then(data => {
-                      setData(data.data)
-                 })
-                 .catch(() => {
-                    setData('Oh no, something went wrong!')
-                 })
+
+            try {
+                const data = await fetch(endpoint)
+                const userHoroscope = data.json();
+                setHoroscope(userHoroscope.data);
+            } catch (error) {
+                setHoroscope('Oh no, something went wrong!');
+            }
+                
     }
 
     const makeKey = () => {
@@ -140,22 +141,22 @@ export function Horoscope() {
 
     return (
         <section className="p-5">
-            <div className="container">
+            <div className="container" id="parent">
                 <div className="d-sm-flex row align-items-center justify-content-between">
                         <div className="row" id="border">
                             <img className="w-25 mx-auto d-none d-sm-block my-2" src={Moon} alt="Moon"/>
-                            <img className="w-75 mx-auto d-sm-none  my-2" src={Moon} alt="Moon"/>
-                            <div id="round-div" className="bg-dark mb-3">
+                            <img className="mx-auto d-sm-none my-2" src={Moon} alt="Moon"/>
+                            <div id="round-div" className="mb-3 mx-auto">
                             <h1 className="text-center text-light mt-5"><span className="text-warning">Horoscope</span> Application</h1>
                             <div id="desktopUI">
-                                <div className="mx-auto mt-5">
+                                <div className="mt-5 text-center">
                                     <select value={selectedSign} onChange={handleSelectedSign} className="btn-lg btn-warning">
                                         {sign.map(sign => {
                                             return <option key={sign.key} value={sign.value}>{sign.label}</option>
                                         })}
                                     </select>
                                 </div>
-                                <div className="mx-auto mt-3">
+                                <div className="mt-3 text-center">
                                     <select value={selectedTimeframe} onChange={handleSelectedTimeframe} className="btn-lg btn-secondary">
                                     {timeframe.map(timeframe => {
                                         return <option key={timeframe.key} value={timeframe.value}>{timeframe.label}</option>
@@ -166,7 +167,7 @@ export function Horoscope() {
                             <div className="text-center">
                                 <button className="btn btn-secondary mt-5" onClick={handleClick}>Show Horoscope</button>
                             </div>
-                                <p id="paragraph" className="mt-5 horoscope-text">({data})</p>
+                                <p id="paragraph" className="mt-5 horoscope-text text-center">({horoscope})</p>
                             </div>
                         </div>
                 </div>
