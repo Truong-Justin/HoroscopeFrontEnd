@@ -1,5 +1,4 @@
 import BannerPicture from './assets/horoscopeImg.svg';
-import './App.css';
 
 // This component renders the banner for the web application
 // that includes the app's title, description, and navigation links.

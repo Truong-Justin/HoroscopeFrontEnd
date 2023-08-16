@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import Moon from './assets/moon.png';
-import './App.css';
 
 // This component handles the UI logic that 
 // outputs to the user their horoscope.
@@ -163,7 +162,7 @@ export function Horoscope() {
                             <img className="w-25 mx-auto d-none d-sm-block my-2" src={Moon} alt="Moon"/>
                             <img className="mx-auto d-sm-none my-2" src={Moon} alt="Moon"/>
                             <div id="round-div" className="mb-3 mx-auto">
-                            <h1 className="text-center text-light mt-5"><span className="text-warning">Horoscope</span> Application</h1>
+                            <h1 className="text-center text-light mt-5"><span className="text-warning">Horoscope</span> App</h1>
                             <div id="desktopUI">
                                 <div className="mt-5 text-center">
                                     <select value={selectedSign} onChange={handleSelectedSign} className="btn-lg btn-warning">
