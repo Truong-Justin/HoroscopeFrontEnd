@@ -1,4 +1,4 @@
-import BannerPicture from '/images/horoscopeImg.svg';
+import BannerPicture from './assets/horoscopeImg.svg';
 import './App.css';
 
 // This component renders the banner for the web application

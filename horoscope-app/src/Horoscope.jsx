@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import Moon from '/images/moon.png';
+import Moon from './assets/moon.png';
 import './App.css';
 
 // This component handles the UI logic that 
