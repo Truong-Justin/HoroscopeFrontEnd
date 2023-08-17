@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: docker-horoscope-app-container
+    image: docker-horoscope-app-image
+    build:
+      context: .
+    ports: 
+      - 8080:80
