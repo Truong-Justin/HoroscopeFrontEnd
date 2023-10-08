@@ -58,7 +58,7 @@ export function Horoscope() {
                 const userHoroscope = await response.json();
                 setHoroscope(userHoroscope["data"]);
             } catch (error) {
-                console.log('error my dude', error);
+                console.log('error', error);
             }
                 
     }
